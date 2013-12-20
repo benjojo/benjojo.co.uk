@@ -1,0 +1,187 @@
+body{
+	background: #000;
+	color: #fff;
+	font-family: "Helvetica", "Arial", sans-serif;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: subpixel-antialiased;
+	overflow: hidden;
+       font-family: Verdana;
+	font-weight: bold;
+}
+
+.background{
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.background-overlay{
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.8)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.9) 20%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to right, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+	
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 900px;
+}
+
+#tile{
+	float: left;
+	height: 64px !important;
+	width: 64px;
+}
+
+
+body{
+	background: #000;
+	color: #fff;
+	font-family: "Helvetica", "Arial", sans-serif;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: subpixel-antialiased;
+	overflow: hidden;
+       font-family: Verdana;
+	font-weight: bold;
+}
+
+.background{
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.background-overlay{
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.8)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.9) 20%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to right, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+	
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 900px;
+}
+
+#tile{
+	float: left;
+	height: 64px !important;
+	width: 64px;
+}
+
+
+.title2 {
+	background-image: url("http://www.benjojo.co.uk/web2/title.png");
+	background-repeat: no-repeat;
+	display: block;
+	height: 107px;
+	width: 676px;
+	position: absolute;
+	text-indent: -9999px;
+	top: -100px;
+}
+
+.background > .tile > .front, .background > .tile > .back{
+	height: 64px;
+	width: 64px;
+}
+
+.body{
+	height: 200px;
+	margin: -100px 0 0 0;
+	position: absolute;
+	top: 50%;
+	left: 100px;
+	width: 200px;
+}
+
+ul.links{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.links > li{
+	margin: 10px 0;
+}
+
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+li {
+	display: block;
+	height: 30px;
+}
+
+li a {
+	color: #FFFFFF;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: #999999;
+}
+
+
+.background > .tile > .front, .background > .tile > .back{
+	height: 64px;
+	width: 64px;
+}
+
+.body{
+	height: 200px;
+	margin: -100px 0 0 0;
+	position: absolute;
+	top: 50%;
+	left: 100px;
+	width: 200px;
+}
+
+ul.links{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.links > li{
+	margin: 10px 0;
+}
+
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+li {
+	display: block;
+	height: 30px;
+}
+
+li a {
+	color: #FFFFFF;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: #999999;
+}
