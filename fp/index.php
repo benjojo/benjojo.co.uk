@@ -25,7 +25,7 @@ if(isset($_GET['i']) && is_numeric($_GET['i'])) {
 
 foreach ($files as $fileno => $filename) {
     if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
-    echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"120px\" height=\"90px\"></a>\n");
+    echo("            <a href=\"$filename\"><img src=\"thumb.$filename\" width=\"120px\" height=\"90px\"></a>\n");
 }
 ?>
     <ul class="links">
