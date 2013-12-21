@@ -97,7 +97,7 @@
     function addTile(count) {
         for (i = 1; i <= count; i++) {
             var hue = '#' + Math.floor(Math.random() * 256).toString(16) + Math.floor(Math.random() * 256).toString(16) + Math.floor(Math.random() * 256).toString(16);
-            $("#tile-grid").append("<div id='tile' style='background: url(\"http://daring.benjojo.co.uk/DataStore/SteamAvatars/blank.png\")'></div>");
+            $("#tile-grid").append("<div id='tile' style=''></div>");
             avatars.shift();
         }
     }
