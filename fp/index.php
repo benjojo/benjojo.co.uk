@@ -18,7 +18,7 @@
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 foreach ($files as $fileno => $filename) {
-    echo("            <a href=\"$filename\"><img src=\"$filename\"></a>\n");
+    echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"250px\" height=\"100px\"></a>\n");
     if($fileno == 30) {
         break;
     }
