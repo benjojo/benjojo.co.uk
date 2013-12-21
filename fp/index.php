@@ -15,11 +15,17 @@
         <ul class="links">
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
+usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
+
+$i = 0;
+$maxperpage = 30;
+if(isset($_GET['i']) && is_numeric($_GET['i'])) {
+    $i = (int)$_GET['i'];
+}
+
 foreach ($files as $fileno => $filename) {
+    if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
     echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"120px\" height=\"90px\"></a>\n");
-    if($fileno == 30) {
-        break;
-    }
 }
 ?>
         </ul>   
