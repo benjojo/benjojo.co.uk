@@ -12,7 +12,6 @@
     </div>
     <div class="background-overlay"></div>
     <div class="listbody">
-        <ul class="links">
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
@@ -27,8 +26,7 @@ foreach ($files as $fileno => $filename) {
     if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
     echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"120px\" height=\"90px\"></a>\n");
 }
-?>
-        </ul>   
+?>  
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
