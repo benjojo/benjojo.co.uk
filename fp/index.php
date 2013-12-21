@@ -26,7 +26,10 @@ foreach ($files as $fileno => $filename) {
     if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
     echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"120px\" height=\"90px\"></a>\n");
 }
-?>  
+?>
+    <ul class="links">
+        <a href="/fp/?i=<?php echo($i + $maxperpage);?>"> Next Page </a>
+    </ul>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
