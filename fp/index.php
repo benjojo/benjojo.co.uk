@@ -11,9 +11,7 @@
     <div class="background" id="tile-grid">
     </div>
     <div class="background-overlay"></div>
-    <div class="body">
-        <div class="title"></div>
-        <div class="title2"></div>
+    <div class="listbody">
         <ul class="links">
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);

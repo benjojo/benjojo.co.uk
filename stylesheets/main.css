@@ -111,6 +111,13 @@ body {
     width: 200px;
 }
 
+.listbody {
+    height: 200px;
+    margin: -100px 0 0 0;
+    position: absolute;
+    left: 100px;
+}
+
 ul.links {
     list-style-type: none;
     padding: 0;
