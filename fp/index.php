@@ -12,6 +12,7 @@
     </div>
     <div class="background-overlay"></div>
     <div class="listbody">
+        <div class="title2"></div>
     &nbsp;
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
