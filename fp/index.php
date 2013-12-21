@@ -16,13 +16,13 @@
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 foreach ($files as $fileno => $filename) {
-    echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"250px\" height=\"100px\"></a>\n");
+    echo("            <a href=\"$filename\"><img src=\"$filename\" width=\"120px\" height=\"90px\"></a>\n");
     if($fileno == 30) {
         break;
     }
 }
 ?>
-        </ul>
+        </ul>   
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
