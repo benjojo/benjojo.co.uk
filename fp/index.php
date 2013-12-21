@@ -38,7 +38,6 @@ foreach ($files as $fileno => $filename) {
     </ul>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
     <script type="text/javascript">
     //$(document).ready(function(){
     var properties = {
