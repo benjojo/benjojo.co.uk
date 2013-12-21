@@ -13,7 +13,6 @@
     <div class="background-overlay"></div>
     <div class="listbody" style="top:200px">
     <div class="title2"></div>
-    &nbsp;
 <?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
