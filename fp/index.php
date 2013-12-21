@@ -3,7 +3,7 @@
 
 <head>
     <title>Benjojo - Ben Cox</title>
-    <link rel="stylesheet" href="stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
     <meta name="description" content="The homepage of Benjojo / Ben Cox showing off my twitter , github and linkedin">
 </head>
 
@@ -15,10 +15,13 @@
         <div class="title"></div>
         <div class="title2"></div>
         <ul class="links">
-            <?php
+<?php
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 foreach ($files as $fileno => $filename) {
-    echo("<a href=\"$filename\"><img src=\"$filename\"></a>\n");
+    echo("            <a href=\"$filename\"><img src=\"$filename\"></a>\n");
+    if($fileno == 30) {
+        break;
+    }
 }
 ?>
         </ul>
