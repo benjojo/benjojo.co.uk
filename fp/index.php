@@ -24,7 +24,7 @@ foreach ($files as $key => $value) {
 $i = 0;
 $maxperpage = 30;
 if(isset($_GET['i']) && is_numeric($_GET['i'])) {
-    $i = (int)$_GET['i'];
+    $i = (int)$_GET['i'] + 30;
 }
 
 
