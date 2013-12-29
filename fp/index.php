@@ -26,6 +26,10 @@ var flipInterval=setInterval(function(){Flipping&&0!=avatars.length&&($($("#tile
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
 foreach ($files as $key => $value) {
+    if(!file_exists("thumb." . $value)) {
+        $svalue = escapeshellcmd($value);
+        shell_exec("/usr/bin/convert -thumbnail 200 $svalue thumb.$svalue")
+    }
     if(strstr($value, "thumb.")) {
         unset($files[$key]);
     }
@@ -38,12 +42,19 @@ if(isset($_GET['i']) && is_numeric($_GET['i'])) {
 
 
 foreach ($files as $fileno => $filename) {
-    if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
-    echo("            <a href=\"$filename\"><img src=\"thumb.$filename\" width=\"120px\" height=\"90px\"></a>\n");
+    if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno) {
+        echo("            <a href=\"$filename\"><img src=\"thumb.$filename\" width=\"120px\" height=\"90px\"></a>\n");
+    }
 }
 ?>
     <ul class="links">
+        <?php
+            if(count($files) > $i + 30) {
+        ?>
         <a href="/fp/?i=<?php echo($i + $maxperpage);?>"> Next Page </a>
+        <?php
+        }
+        ?>
     </ul>
     </div>
 </body>
