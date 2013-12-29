@@ -5,39 +5,7 @@
     <title>Benjojo - Ben Cox</title>
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <meta name="description" content="The content dump of Benjojo">
-</head>
-
-<body>
-    <div class="background" id="tile-grid">
-    </div>
-    <div class="background-overlay"></div>
-    <div class="listbody" style="top:200px">
-    <div class="title2"></div>
-<?php
-$files = glob("{*.jpg,*.png}",GLOB_BRACE);
-usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
-foreach ($files as $key => $value) {
-    if(strstr($value, "thumb.")) {
-        unset($files[$key]);
-    }
-}
-$i = 0;
-$maxperpage = 30;
-if(isset($_GET['i']) && is_numeric($_GET['i'])) {
-    $i = (int)$_GET['i'] + 30;
-}
-
-
-foreach ($files as $fileno => $filename) {
-    if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
-    echo("            <a href=\"$filename\"><img src=\"thumb.$filename\" width=\"120px\" height=\"90px\"></a>\n");
-}
-?>
-    <ul class="links">
-        <a href="/fp/?i=<?php echo($i + $maxperpage);?>"> Next Page </a>
-    </ul>
-    </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
     //$(document).ready(function(){
     var properties = {
@@ -136,7 +104,38 @@ foreach ($files as $fileno => $filename) {
 
     //});
     </script>
-    <!-- Testing the auto update system -->
+</head>
+
+<body>
+    <div class="background" id="tile-grid">
+    </div>
+    <div class="background-overlay"></div>
+    <div class="listbody" style="top:200px">
+    <div class="title2"></div>
+<?php
+$files = glob("{*.jpg,*.png}",GLOB_BRACE);
+usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
+foreach ($files as $key => $value) {
+    if(strstr($value, "thumb.")) {
+        unset($files[$key]);
+    }
+}
+$i = 0;
+$maxperpage = 30;
+if(isset($_GET['i']) && is_numeric($_GET['i'])) {
+    $i = (int)$_GET['i'] + 30;
+}
+
+
+foreach ($files as $fileno => $filename) {
+    if($i + $maxperpage > $fileno && $i - $maxperpage < $fileno)
+    echo("            <a href=\"$filename\"><img src=\"thumb.$filename\" width=\"120px\" height=\"90px\"></a>\n");
+}
+?>
+    <ul class="links">
+        <a href="/fp/?i=<?php echo($i + $maxperpage);?>"> Next Page </a>
+    </ul>
+    </div>
 </body>
 
 </html>
