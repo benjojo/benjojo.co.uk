@@ -28,7 +28,7 @@ usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'))
 foreach ($files as $key => $value) {
     if(!file_exists("thumb." . $value)) {
         $svalue = escapeshellcmd($value);
-        shell_exec("/usr/bin/convert -thumbnail 200 $svalue thumb.$svalue")
+        shell_exec("/usr/bin/convert -thumbnail 200 $svalue thumb.$svalue");
     }
     if(strstr($value, "thumb.")) {
         unset($files[$key]);
