@@ -5,7 +5,7 @@
     <title>Benjojo - Ben Cox</title>
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <meta name="description" content="The content dump of Benjojo">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
     //$(document).ready(function(){
     var properties = {
