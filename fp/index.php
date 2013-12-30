@@ -26,10 +26,10 @@ var flipInterval=setInterval(function(){Flipping&&0!=avatars.length&&($($("#tile
 $files = glob("{*.jpg,*.png}",GLOB_BRACE);
 usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
 foreach ($files as $key => $value) {
-    if(!file_exists("thumb." . $value)) {
-        $svalue = escapeshellcmd($value);
-        shell_exec("/usr/bin/convert -thumbnail 200 $svalue thumb.$svalue");
-    }
+    // if(!file_exists("thumb." . $value)) {
+    //     $svalue = escapeshellcmd($value);
+    //     shell_exec("/usr/bin/convert -thumbnail 200 $svalue thumb.$svalue");
+    // }
     if(strstr($value, "thumb.")) {
         unset($files[$key]);
     }
