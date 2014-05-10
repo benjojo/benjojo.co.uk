@@ -55,8 +55,8 @@
     var avatars = [];
     var Flipping = false;
     var FlipPntr = 0;
-
-    $.getJSON('http://daring.benjojo.co.uk/DataStore/SteamAvatars/GrabLinks.php?x=' + $(window).height() / 64 + '&y=' + $(window).width() / 64, function(data) {
+    var hostname = "http://daring.benjojo.co.uk";
+    $.getJSON(hostname + '/DataStore/SteamAvatars/GrabLinks.php?x=' + $(window).height() / 64 + '&y=' + $(window).width() / 64, function(data) {
         avatars = $.merge(avatars, data.img);
     });
     Flipping = true;
@@ -124,7 +124,7 @@
 
     var GetNewAvatars = setInterval(function() {
         if (!Flipping) {
-            $.getJSON('http://daring.benjojo.co.uk/DataStore/SteamAvatars/GrabLinks.php?x=' + properties.window.height / 64 + '&y=' + properties.window.width / 64, function(data) {
+            $.getJSON(hostname + '/DataStore/SteamAvatars/GrabLinks.php?x=' + properties.window.height / 64 + '&y=' + properties.window.width / 64, function(data) {
                 avatars = $.merge(avatars, data.img);
             });
             FlipPntr = 0;
