@@ -55,7 +55,7 @@
     var avatars = [];
     var Flipping = false;
     var FlipPntr = 0;
-    var hostname = "http://daring.benjojo.co.uk";
+    var hostname = "//daringssl.benjojo.co.uk";
     $.getJSON(hostname + '/DataStore/SteamAvatars/GrabLinks.php?x=' + $(window).height() / 64 + '&y=' + $(window).width() / 64, function(data) {
         avatars = $.merge(avatars, data.img);
     });
