@@ -31,13 +31,18 @@
                 <a href="http://storm.benjojo.co.uk/svnout/svnout-master">SVNOut</a>
             </li>
             <li>
-                <a href="http://www.benjojo.co.uk/email.png">Email Me</a>
+                <a id="email" href='#' onclick="decodeemail();">Email Me</a>
             </li>
         </ul>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
     //$(document).ready(function(){
+
+    function decodeemail () {
+        $('#email').text("ben"+"@"+"benjojo.co."+"uk");
+    }
+
     var properties = {
         "window": {
             "height": 0,
