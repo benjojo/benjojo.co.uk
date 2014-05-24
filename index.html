@@ -67,7 +67,7 @@
     function initTiles() {
         properties.window.height = $(window).height();
         properties.window.width = $(window).width();
-        properties.tiles.hCount = Math.ceil(properties.window.height / 64);
+        properties.tiles.hCount = Math.floor(properties.window.height / 64);
         properties.tiles.wCount = Math.ceil(properties.window.width / 64);
         properties.tiles.count = properties.tiles.hCount * properties.tiles.wCount;
         rearrangeTiles();
