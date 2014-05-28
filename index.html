@@ -31,14 +31,14 @@
                 <a href="http://storm.benjojo.co.uk/svnout/svnout-master">SVNOut</a>
             </li>
             <li>
-                <a id="email" href='#' onclick="decodeemail();">Email Me</a>
+                <a id="email" href='http://benjojo.co.uk/email.png' onclick="decodeemail();">Email Me</a>
             </li>
         </ul>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
     //$(document).ready(function(){
-
+    $("#email").attr("href", "#");
     function decodeemail () {
         $('#email').text("ben"+"@"+"benjojo.co."+"uk");
     }
