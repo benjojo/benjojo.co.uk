@@ -57,11 +57,12 @@
     var avatars = [];
     var Flipping = false;
     var FlipPntr = 0;
-    var hostname = "//daringssl.benjojo.co.uk";
+    /*var hostname = "//daringssl.benjojo.co.uk";
     $.getJSON(hostname + '/DataStore/SteamAvatars/GrabLinks.php?x=' + $(window).height() / 64 + '&y=' + $(window).width() / 64, function(data) {
         avatars = $.merge(avatars, data.img);
     });
     Flipping = true;
+    */
     $(window).bind("resize load", initTiles);
 
     function initTiles() {
@@ -107,36 +108,7 @@
         var randomIndex = Math.floor(Math.random() * this.length);
         return jQuery(this[randomIndex]);
     };
-
-    var flipInterval = setInterval(function() {
-        if (Flipping) {
-            if (avatars.length != 0) {
-                $($("#tile-grid #tile")[FlipPntr]).css({
-                    "background": "url('" + avatars[0] + "')"
-                });
-                avatars.shift();
-                FlipPntr++;
-                if (FlipPntr > (properties.tiles.hCount * properties.tiles.wCount)) {
-                    avatars = [];
-                    Flipping = false;
-                }
-            }
-        }
-    }, 50);
-
-    var GetNewAvatars = setInterval(function() {
-        if (!Flipping) {
-            $.getJSON(hostname + '/DataStore/SteamAvatars/GrabLinks.php?x=' + properties.window.height / 64 + '&y=' + properties.window.width / 64, function(data) {
-                avatars = $.merge(avatars, data.img);
-            });
-            FlipPntr = 0;
-            preload(avatars);
-            setInterval(function() {
-                Flipping = true;
-            }, 3000);
-        }
-    }, 30000);
-
+    
     //});
     </script>
     <!-- Testing the auto update system -->
