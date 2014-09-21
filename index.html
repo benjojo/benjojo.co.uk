@@ -3,12 +3,17 @@
 
 <head>
     <title>Benjojo - Ben Cox</title>
-    <link rel="stylesheet" href="stylesheets/main.css" />
+    <link rel="stylesheet" href="stylesheets/main.css?asdfsdf" />
     <meta name="description" content="Software Developer - Benjojo / Ben Cartwright Cox">
+    <style>canvas{display:block;width:100%;height:100%;position:absolute;}</style>
+
 </head>
 
 <body>
     <div class="background" id="tile-grid">
+	<div id="spinner">
+	</div>
+    <canvas id="console">
     </div>
     <div class="background-overlay"></div>
     <div class="body">
@@ -16,102 +21,76 @@
         <div class="title2"></div>
         <ul class="links">
             <li>
-                <a href="http://blog.benjojo.co.uk/">Blog</a>
+                <a href="http://blog.benjojo.co.uk/" onclick="window.location='http://blog.benjojo.co.uk/';">Blog</a>
             </li>
             <li>
-                <a href="https://github.com/benjojo">Github</a>
+                <a href="https://github.com/benjojo" onclick="window.location='https://github.com/benjojo';">Github</a>
             </li>
             <li>
-                <a href="https://twitter.com/#!/Benjojo12">Twitter</a>
+                <a href="https://twitter.com/#!/Benjojo12" onclick="window.location='https://twitter.com/#!/Benjojo12';">Twitter</a>
             </li>
             <li>
-                <a href="http://www.linkedin.com/pub/ben-cox/36/542/234">LinkedIn</a>
+                <a href="http://www.linkedin.com/pub/ben-cox/36/542/234" onclick="window.location='http://www.linkedin.com/pub/ben-cox/36/542/234';">LinkedIn</a>
             </li>
             <li>
-                <a href="http://storm.benjojo.co.uk/svnout/svnout-master">SVNOut</a>
+                <a href="http://storm.benjojo.co.uk/svnout/svnout-master" onclick="window.location='http://storm.benjojo.co.uk/svnout/svnout-master';">SVNOut</a>
             </li>
             <li>
                 <a id="email" href='http://benjojo.co.uk/email.png' onclick="decodeemail();">Email Me</a>
             </li>
+            <li>
+                <a id="closebar" href='#'>Click to play with the VM</a>
+            </li>
         </ul>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//vpool.benjojo.co.uk/wss/novnc.js?9"></script>
+
+
     <script type="text/javascript">
+
+
+
+if("WebSocket" in window && navigator.userAgent.toLowerCase().indexOf('firefox') == -1) {
+		for ( i = 0; i < 3 * 4; ++i )
+			$('<div>', {'class': 'dot', 'id': 'dot-' + i}).appendTo('#spinner');
+
+$('#closebar').click(function() {
+	$('.background-overlay').remove();
+	$('.body').remove();
+});
+
+
+  var con = document.getElementById("console");
+  var rfb = new RFB({ target: con,encrypt: false });
+  rfb.connect("vpool.benjojo.co.uk", 80, null, "gimmevm");
+} else if("WebSocket" in window && navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
+	// This is firefox!
+
+		for ( i = 0; i < 3 * 4; ++i )
+			$('<div>', {'class': 'dot', 'id': 'dot-' + i}).appendTo('#spinner');
+
+	$('#closebar').text("Start VM"); // Sorry firefox is broken :C
+	$('#closebar').click(function() {
+	 alert("HI MOM");
+ 	 var con = document.getElementById("console");
+ 	 var rfb = new RFB({ target: con,encrypt: false });
+ 	 rfb.connect("vpool.benjojo.co.uk", 80, null, "gimmevm");
+	 $('.background-overlay').remove();
+	 $('.body').remove();
+	});
+} else {
+	$('#closebar').remove();
+}
+
     //$(document).ready(function(){
     $("#email").attr("href", "#");
     function decodeemail () {
         $('#email').text("ben"+"@"+"benjojo.co."+"uk");
     }
-
-    var properties = {
-        "window": {
-            "height": 0,
-            "width": 0
-        },
-        "tiles": {
-            "count": 0,
-            "hCount": 0,
-            "wCount": 0
-        }
-    };
-    var avatars = [];
-    var Flipping = false;
-    var FlipPntr = 0;
-    /*var hostname = "//daringssl.benjojo.co.uk";
-    $.getJSON(hostname + '/DataStore/SteamAvatars/GrabLinks.php?x=' + $(window).height() / 64 + '&y=' + $(window).width() / 64, function(data) {
-        avatars = $.merge(avatars, data.img);
-    });
-    Flipping = true;
-    */
-    $(window).bind("resize load", initTiles);
-
-    function initTiles() {
-        properties.window.height = $(window).height();
-        properties.window.width = $(window).width();
-        properties.tiles.hCount = Math.floor(properties.window.height / 64);
-        properties.tiles.wCount = Math.ceil(properties.window.width / 64);
-        properties.tiles.count = properties.tiles.hCount * properties.tiles.wCount;
-        rearrangeTiles();
-    }
-
-    function preload(arrayOfImages) {
-        $(arrayOfImages).each(function() {
-            $('<img/>')[0].src = this;
-        });
-    }
-
-    function rearrangeTiles() {
-        var oldCount = $("#tile-grid #tile").size();
-        var deltaCount = properties.tiles.count - oldCount;
-
-        $("#tile-grid").css({
-            "height": properties.tiles.hCount * 64,
-            "width": properties.tiles.wCount * 64
-        });
-
-        if (deltaCount < 0) {
-            $("#tile-grid #tile:gt(" + properties.tiles.count + ")").remove();
-        } else if (deltaCount > 0) {
-            addTile(deltaCount);
-        }
-    }
-
-    function addTile(count) {
-        for (i = 1; i <= count; i++) {
-            var hue = '#' + Math.floor(Math.random() * 256).toString(16) + Math.floor(Math.random() * 256).toString(16) + Math.floor(Math.random() * 256).toString(16);
-            $("#tile-grid").append("<div id='tile' style=''></div>");
-            avatars.shift();
-        }
-    }
-
-    jQuery.fn.random = function() {
-        var randomIndex = Math.floor(Math.random() * this.length);
-        return jQuery(this[randomIndex]);
-    };
-    
+   
     //});
     </script>
-    <!-- Testing the auto update system -->
 </body>
 
 </html>
