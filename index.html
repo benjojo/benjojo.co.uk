@@ -63,7 +63,7 @@ $('#closebar').click(function() {
 
   var con = document.getElementById("console");
   var rfb = new RFB({ target: con,encrypt: false });
-  rfb.connect("vpool.benjojo.co.uk", 80, null, "gimmevm");
+  rfb.connect("vpool.benjojo.co.uk", 443, null, "gimmevm");
 } else if("WebSocket" in window && navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
 	// This is firefox!
 
