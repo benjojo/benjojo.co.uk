@@ -69,7 +69,6 @@ $('#closebar').click(function() {
 
 	$('#closebar').text("Start VM"); // Sorry firefox is broken :C
 	$('#closebar').click(function() {
-	 alert("HI MOM");
  	 var con = document.getElementById("console");
  	 var rfb = new RFB({ target: con,encrypt: true });
  	 rfb.connect("vpool.benjojo.co.uk", 443, null, "gimmevm");
