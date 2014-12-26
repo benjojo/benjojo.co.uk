@@ -21,19 +21,19 @@
         <div class="title2"></div>
         <ul class="links">
             <li>
-                <a href="http://blog.benjojo.co.uk/" onclick="window.location='http://blog.benjojo.co.uk/';">Blog</a>
+                <a href="http://blog.benjojo.co.uk/" onmousedown="window.location='http://blog.benjojo.co.uk/';">Blog</a>
             </li>
             <li>
-                <a href="https://github.com/benjojo" onclick="window.location='https://github.com/benjojo';">Github</a>
+                <a href="https://github.com/benjojo" onmousedown="window.location='https://github.com/benjojo';">Github</a>
             </li>
             <li>
-                <a href="https://twitter.com/#!/Benjojo12" onclick="window.location='https://twitter.com/#!/Benjojo12';">Twitter</a>
+                <a href="https://twitter.com/#!/Benjojo12" onmousedown="window.location='https://twitter.com/#!/Benjojo12';">Twitter</a>
             </li>
             <li>
-                <a href="http://www.linkedin.com/pub/ben-cox/36/542/234" onclick="window.location='http://www.linkedin.com/pub/ben-cox/36/542/234';">LinkedIn</a>
+                <a href="http://www.linkedin.com/pub/ben-cox/36/542/234" onmousedown="window.location='http://www.linkedin.com/pub/ben-cox/36/542/234';">LinkedIn</a>
             </li>
             <li>
-                <a id="email" href='http://benjojo.co.uk/email.png' onclick="decodeemail();">Email Me</a>
+                <a id="email" href='http://benjojo.co.uk/email.png' onmousedown="decodeemail();">Email Me</a>
             </li>
             <li>
                 <a id="closebar" href='#'>Click to play with the VM</a>
@@ -48,7 +48,7 @@
 
 
 
-if("WebSocket" in window && navigator.userAgent.toLowerCase().indexOf('firefox') == -1) {
+if("WebSocket" in window) {
 		for ( i = 0; i < 3 * 4; ++i )
 			$('<div>', {'class': 'dot', 'id': 'dot-' + i}).appendTo('#spinner');
 
@@ -61,20 +61,6 @@ $('#closebar').click(function() {
   var con = document.getElementById("console");
   var rfb = new RFB({ target: con,encrypt: false });
   rfb.connect("vpool.benjojo.co.uk", 443, null, "gimmevm");
-} else if("WebSocket" in window && navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
-	// This is firefox!
-
-		for ( i = 0; i < 3 * 4; ++i )
-			$('<div>', {'class': 'dot', 'id': 'dot-' + i}).appendTo('#spinner');
-
-	$('#closebar').text("Start VM"); // Sorry firefox is broken :C
-	$('#closebar').click(function() {
- 	 var con = document.getElementById("console");
- 	 var rfb = new RFB({ target: con,encrypt: true });
- 	 rfb.connect("vpool.benjojo.co.uk", 443, null, "gimmevm");
-	 $('.background-overlay').remove();
-	 $('.body').remove();
-	});
 } else {
 	$('#closebar').remove();
 }
